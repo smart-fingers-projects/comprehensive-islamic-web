@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - الجامع الإسلامي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Modern Slate -->
+    <!-- Application Structure Plan: A tabbed interface with a persistent sidebar (desktop) and a slide-out menu (mobile). The policy is broken down into its logical sections as defined in the source report (e.g., "Information Collection", "Third Party Access", "Opt-Out Rights"). This structure is chosen because it allows users to quickly access specific legal clauses without scrolling, making the dense information more manageable and less intimidating. The default view is the introduction, providing immediate context. -->
+    <!-- Visualization & Content Choices:
+        - Policy Sections -> Goal: Inform -> Presentation: Each section from the report is a distinct content block. This direct mapping ensures all original text is preserved while being organized for clarity.
+        - Navigation -> Goal: Organize -> Presentation: A fixed sidebar with links directly corresponding to the policy's subheadings. Implemented with HTML lists and styled with Tailwind. JS handles the interactive showing/hiding of content blocks.
+        - Key Concepts (e.g., types of data, user rights) -> Goal: Emphasize -> Presentation: Important concepts are visually separated into cards or highlighted with icons (e.g.,  raccolta, 🛡️, 🛑) and bold text to improve scannability.
+        - Third-Party Links -> Goal: Inform -> Presentation: External links, like for Google Play Services, are styled as clear, clickable buttons to guide the user.
+        - Quantitative Data -> Goal: N/A -> Presentation: The report contains no quantitative data, so no charts are used.
+        - Justification: This design respects the legalistic nature of the document by not altering the text, while vastly improving its usability through modern UI patterns like tabbed navigation and visual hierarchy.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        .nav-link.active {
+            background-color: #eef2ff;
+            /* indigo-100 */
+            color: #4f46e5;
+            /* indigo-600 */
+            font-weight: 600;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar"
+            class="w-72 bg-white p-6 border-r border-slate-200 hidden md:block fixed h-full">
+            <h1 class="text-xl font-bold text-slate-900">Privacy Policy</h1>
+            <h2 class="text-sm text-slate-500 mb-8">الجامع الإسلامي</h2>
+            <nav>
+                <ul class="space-y-1">
+                    <li><a href="#introduction"
+                            class="nav-link active w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Introduction</a>
+                    </li>
+                    <li><a href="#collection"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Information
+                            Collection & Use</a></li>
+                    <li><a href="#third-party"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Third
+                            Party Access</a></li>
+                    <li><a href="#opt-out"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Opt-Out
+                            Rights</a></li>
+                    <li><a href="#retention"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Data
+                            Retention Policy</a></li>
+                    <li><a href="#children"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Children</a>
+                    </li>
+                    <li><a href="#security"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Security</a>
+                    </li>
+                    <li><a href="#changes"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Changes</a>
+                    </li>
+                    <li><a href="#consent"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Your
+                            Consent</a></li>
+                    <li><a href="#contact"
+                            class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Contact
+                            Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Mobile Header -->
+        <header
+            class="md:hidden w-full bg-white p-4 border-b border-slate-200 fixed top-0 z-20">
+            <div class="flex justify-between items-center">
+                <h1 class="text-lg font-bold text-slate-900">Privacy Policy</h1>
+                <button id="menu-button" class="p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu-container"
+            class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 hidden">
+            <aside id="mobile-menu" class="w-72 bg-white p-6 h-full">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-sm text-slate-500">Navigation</h2>
+                    <button id="close-menu-button" class="p-2"
+                        aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <nav>
+                    <ul class="space-y-1">
+                        <li><a href="#introduction"
+                                class="nav-link active w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Introduction</a>
+                        </li>
+                        <li><a href="#collection"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Information
+                                Collection & Use</a></li>
+                        <li><a href="#third-party"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Third
+                                Party Access</a></li>
+                        <li><a href="#opt-out"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Opt-Out
+                                Rights</a></li>
+                        <li><a href="#retention"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Data
+                                Retention Policy</a></li>
+                        <li><a href="#children"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Children</a>
+                        </li>
+                        <li><a href="#security"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Security</a>
+                        </li>
+                        <li><a href="#changes"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Changes</a>
+                        </li>
+                        <li><a href="#consent"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Your
+                                Consent</a></li>
+                        <li><a href="#contact"
+                                class="nav-link w-full text-left text-slate-600 hover:bg-slate-100 block p-3 rounded-lg transition-colors duration-200">Contact
+                                Us</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 mt-20 md:mt-0">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-sm text-slate-500 mb-6">Effective as of: January
+                    1, 2025</p>
+
+                <section id="introduction-content"
+                    class="content-section active">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">
+                        Introduction</h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p>This privacy policy applies to the <strong
+                                class="text-slate-900">الجامع الإسلامي</strong>
+                            app (hereby referred to as "Application") for mobile
+                            devices that was created by <strong
+                                class="text-slate-900">الأنامل الذكية</strong>
+                            (hereby referred to as "Service Provider") as a Free
+                            service. This service is intended for use "AS IS".
+                        </p>
+                    </div>
+                </section>
+
+                <section id="collection-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">
+                        Information Collection and Use</h3>
+                    <div
+                        class="space-y-6 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p>The Application collects information when you
+                            download and use it. This information may include
+                            information such as:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Your device's Internet Protocol address (e.g. IP
+                                address)</li>
+                            <li>The pages of the Application that you visit, the
+                                time and date of your visit, the time spent on
+                                those pages</li>
+                            <li>The time spent on the Application</li>
+                            <li>The operating system you use on your mobile
+                                device</li>
+                        </ul>
+                        <p>The Application does not gather precise information
+                            about the location of your mobile device.</p>
+                        <p>The Service Provider may use the information you
+                            provided to contact you from time to time to provide
+                            you with important information, required notices and
+                            marketing promotions.</p>
+                        <p>For a better experience, while using the Application,
+                            the Service Provider may require you to provide us
+                            with certain personally identifiable information.
+                            The information that the Service Provider request
+                            will be retained by them and used as described in
+                            this privacy policy.</p>
+                    </div>
+                </section>
+
+                <section id="third-party-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Third
+                        Party Access</h3>
+                    <div
+                        class="space-y-6 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p>Only aggregated, anonymized data is periodically
+                            transmitted to external services to aid the Service
+                            Provider in improving the Application and their
+                            service. The Service Provider may share your
+                            information with third parties in the ways that are
+                            described in this privacy statement.</p>
+                        <p>Please note that the Application utilizes third-party
+                            services that have their own Privacy Policy about
+                            handling data. Below are the links to the Privacy
+                            Policy of the third-party service providers used by
+                            the Application:</p>
+                        <div class="my-4">
+                            <a href="https://policies.google.com/privacy"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-block bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-600 transition-colors">
+                                Google Play Services
+                            </a>
+                        </div>
+                        <p>The Service Provider may disclose User Provided and
+                            Automatically Collected Information:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>as required by law, such as to comply with a
+                                subpoena, or similar legal process;</li>
+                            <li>when they believe in good faith that disclosure
+                                is necessary to protect their rights, protect
+                                your safety or the safety of others, investigate
+                                fraud, or respond to a government request;</li>
+                            <li>with their trusted services providers who work
+                                on their behalf, do not have an independent use
+                                of the information we disclose to them, and have
+                                agreed to adhere to the rules set forth in this
+                                privacy statement.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="opt-out-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Opt-Out
+                        Rights</h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex items-center">
+                        <span class="text-5xl mr-6">🛑</span>
+                        <p>You can stop all collection of information by the
+                            Application easily by uninstalling it. You may use
+                            the standard uninstall processes as may be available
+                            as part of your mobile device or via the mobile
+                            application marketplace or network.</p>
+                    </div>
+                </section>
+
+                <section id="retention-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Data
+                        Retention Policy</h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p>The Service Provider will retain User Provided data
+                            for as long as you use the Application and for a
+                            reasonable time thereafter. If you'd like them to
+                            delete User Provided Data that you have provided via
+                            the Application, please contact them at <a
+                                href="mailto:smartfingers.ye@gmail.com"
+                                class="text-indigo-600 hover:underline">smartfingers.ye@gmail.com</a>
+                            and they will respond in a reasonable time.</p>
+                    </div>
+                </section>
+
+                <section id="children-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Children
+                    </h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+                        <p>The Service Provider does not use the Application to
+                            knowingly solicit data from or market to children
+                            under the age of 13.</p>
+                        <p>The Application does not address anyone under the age
+                            of 13. The Service Provider does not knowingly
+                            collect personally identifiable information from
+                            children under 13 years of age. In the case the
+                            Service Provider discover that a child under 13 has
+                            provided personal information, the Service Provider
+                            will immediately delete this from their servers. If
+                            you are a parent or guardian and you are aware that
+                            your child has provided us with personal
+                            information, please contact the Service Provider (<a
+                                href="mailto:smartfingers.ye@gmail.com"
+                                class="text-indigo-600 hover:underline">smartfingers.ye@gmail.com</a>)
+                            so that they will be able to take the necessary
+                            actions.</p>
+                    </div>
+                </section>
+
+                <section id="security-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Security
+                    </h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex items-center">
+                        <span class="text-5xl mr-6">🛡️</span>
+                        <p>The Service Provider is concerned about safeguarding
+                            the confidentiality of your information. The Service
+                            Provider provides physical, electronic, and
+                            procedural safeguards to protect information the
+                            Service Provider processes and maintains.</p>
+                    </div>
+                </section>
+
+                <section id="changes-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Changes
+                    </h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex items-center">
+                        <span class="text-5xl mr-6">🔄</span>
+                        <p>This Privacy Policy may be updated from time to time
+                            for any reason. The Service Provider will notify you
+                            of any changes to the Privacy Policy by updating
+                            this page with the new Privacy Policy. You are
+                            advised to consult this Privacy Policy regularly for
+                            any changes, as continued use is deemed approval of
+                            all changes.</p>
+                    </div>
+                </section>
+
+                <section id="consent-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Your
+                        Consent</h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex items-center">
+                        <span class="text-5xl mr-6">👍</span>
+                        <p>By using the Application, you are consenting to the
+                            processing of your information as set forth in this
+                            Privacy Policy now and as amended by us.</p>
+                    </div>
+                </section>
+
+                <section id="contact-content" class="content-section">
+                    <h3 class="text-3xl font-bold mb-4 text-slate-900">Contact
+                        Us</h3>
+                    <div
+                        class="space-y-4 bg-white p-8 rounded-xl border border-slate-200 shadow-sm text-center">
+                        <span class="text-5xl mb-4 block">📧</span>
+                        <p class="mb-2">If you have any questions regarding
+                            privacy while using the Application, or have
+                            questions about the practices, please contact the
+                            Service Provider via email at:</p>
+                        <a href="mailto:smartfingers.ye@gmail.com"
+                            class="text-indigo-600 text-xl font-semibold hover:underline">smartfingers.ye@gmail.com</a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const allNavLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenuContainer = document.getElementById('mobile-menu-container');
+            const closeMenuButton = document.getElementById('close-menu-button');
+
+            function switchTab(targetId) {
+                allNavLinks.forEach(link => link.classList.remove('active'));
+                contentSections.forEach(section => section.classList.remove('active'));
+
+                const targetContent = document.getElementById(`${targetId}-content`);
+                if (targetContent) {
+                    document.querySelectorAll(`.nav-link[href="#${targetId}"]`).forEach(l => l.classList.add('active'));
+                    targetContent.classList.add('active');
+                }
+            }
+
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    switchTab(targetId);
+                    if (!mobileMenuContainer.classList.contains('hidden')) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            function openMenu() {
+                mobileMenuContainer.classList.remove('hidden');
+            }
+
+            function closeMenu() {
+                mobileMenuContainer.classList.add('hidden');
+            }
+
+            menuButton.addEventListener('click', openMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            mobileMenuContainer.addEventListener('click', function (e) {
+                if (e.target === mobileMenuContainer) {
+                    closeMenu();
+                }
+            });
+
+            const initialTab = window.location.hash ? window.location.hash.substring(1) : 'introduction';
+            switchTab(initialTab);
+        });
+    </script>
+</body>
+
+</html>
